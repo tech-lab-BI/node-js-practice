@@ -1,0 +1,1 @@
+redireting file creation : home to /path1 then redirected to /location as it not present so handle by default url. proof is creating this file when visit /path1.

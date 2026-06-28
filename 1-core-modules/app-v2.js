@@ -8,6 +8,7 @@ function requestListener(req, res) {
       <body><h1>Hello world... Learning nodeJS</h1></body>
     </html>`);
   res.end();
+  // process.exit();//stop server
 }
 
 const server = http.createServer(requestListener);
