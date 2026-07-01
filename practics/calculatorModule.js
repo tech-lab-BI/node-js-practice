@@ -1,58 +1,47 @@
-const calSum = require("./calculatorSum");
+const calSum = require("./calculatorSum"); // 5. Import custom module
 
 function requestHandler(req, res) {
-  if (req.url === "/") {
-    res.setHeader("Content-Type", "text/html");
-    return res.end(`<html>
-            <head>
-                <title>User Input using Response</title>
-            </head>
-            <body>
-                <h1>WELCOME to CALCULATOR.</h1>
-                <a href="/calculator">Calculate</a>
-            </body>
-        </html>`);
+  // 6. Called once for every incoming HTTP request
+
+  if (req.url === "/" && req.method === "GET") {
+    // 7. Handle GET request for home page
+
+    res.setHeader("Content-Type", "text/html"); // Tell browser that response body contains HTML
+
+    return res.end(`
+      <html>
+        <head>
+          <title>CALCULATOR</title>
+        </head>
+        <body>
+          <h1>WELCOME to CALCULATOR.</h1>
+          <a href="/calculator">Calculate</a>
+        </body>
+      </html>
+    `); // Send response and stop execution of this request
   } else if (req.url === "/calculator") {
-    res.setHeader("Content-Type", "text/html");
-    return res.end(`<html>
-            <head>
-                <title>User Input using Response</title>
-            </head>
-            <body>
-                <form method="POST" action="/calculate-result">
-                    <input type="number" name="num1">
-                    <input type="number" name="num2">
-                    <button submit="submit">SUM</button>
-                </form>
-            </body>
-        </html>`);
+    // Handle request for calculator page
+
+    res.setHeader("Content-Type", "text/html"); // Tell browser that response body contains HTML
+
+    return res.end(`
+      <html>
+        <head>
+          <title>calculator-result</title>
+        </head>
+        <body>
+          <form method="POST" action="/calculate-result">
+            <input type="number" name="num1">
+            <span>+</span>
+            <input type="number" name="num2">
+            <button type="submit">SUM</button>
+          </form>
+        </body>
+      </html>
+    `); // Send calculator form and stop execution
   } else if (req.url === "/calculate-result" && req.method === "POST") {
-    res.setHeader("Content-Type", "text/plain");
-    const chunks = [];
-    req.on("data", (chunk) => {
-      chunks.push(chunk);
-    });
-    req.on("end", () => {
-      const data = Buffer.concat(chunks).toString();
-      const params = new URLSearchParams(data);
-      const obj = {};
-      for(cosnt [key, value] of params.entries()){
-        obj[key] = value;
-      }
-      const result = calSum(obj.num1, obj.num2);
-    `<html>
-    <head>
-        <title>User Input using Response</title>
-    </head>
-    <body>
-        <h3>${obj.num1}+${obj.num2}=${result}</h3>
-    </body>
-    </html>`
-    });
+    calSum(req, res); // Delegate request processing to another function
   }
-  res.statusCode = 302;
-  res.setHeader("Location", "/");
-  res.end();
 }
 
-module.exports = requestHandler;
+module.exports = requestHandler; // Export function so other files can use it
