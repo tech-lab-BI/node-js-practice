@@ -1,10 +1,10 @@
-const calSum = require("./calculatorSum"); // 5. Import custom module
+const calSum = require("./calculatorSum"); // Import custom module
 
 function requestHandler(req, res) {
-  // 6. Called once for every incoming HTTP request
+  // Called once for every incoming HTTP request
 
   if (req.url === "/" && req.method === "GET") {
-    // 7. Handle GET request for home page
+    // Handle GET request for home page
 
     res.setHeader("Content-Type", "text/html"); // Tell browser that response body contains HTML
 

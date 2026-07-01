@@ -3,7 +3,7 @@ function calSum(req, res) {
 
   const chunks = [];
 
-  req.on("data", (chunk) => {
+  req.on("data", (chunk) => {//assign a data callback which can be called multiple times
     // Request body arrives as a stream.this part handle by event loop for future chunk
     //program doesn't hold here, event loop assign a loop to handle this part , program move forword.
     chunks.push(chunk);
