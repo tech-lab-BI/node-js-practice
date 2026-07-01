@@ -7,7 +7,7 @@ function requestListener(req, res) {
       <head><title>Hello world</title></head>
       <body><h1>Hello world... Learning nodeJS</h1></body>
     </html>`);
-  res.end();
+  return res.end();//end response
   // process.exit();//stop server
 }
 
