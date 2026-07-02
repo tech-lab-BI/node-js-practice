@@ -6,13 +6,15 @@ function requestListener(req, res) {
   //   console.log("Hello);//syntax error
   //   let num = 10;
   //   num();//logical error
-  if(4 === 4){//for debugging
+  if (4 === 4) {
+    //for debugging
     console.log("Hello world");
-  }
-  else{
+  } else {
     console.log("Learning nodejs");
   }
 }
+
+//debugger can be power by nodemon(by default it node)
 
 const server = http.createServer(requestListener);
 
