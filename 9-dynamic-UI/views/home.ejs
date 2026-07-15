@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/output.css" />
+  </head>
+  <body class="min-h-screen bg-gray-50 flex flex-col">
+    <header class="bg-white shadow-sm">
+      <div class="max-w-5xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-gray-900">Airbnb</h1>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <div class="max-w-5xl mx-auto px-4 py-10">
+
+        <p class="text-lg text-gray-700 mb-6">
+          Welcome to Airbnb (Page working in progress.......)
+        </p>
+
+        <a
+          href="/user/register-home"
+          class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition mb-10"
+        >
+          Register Your Home
+        </a>
+
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <h1 class="text-2xl font-bold text-gray-800 mb-5">
+            Registered Homes List
+          </h1>
+          <ul class="space-y-3">
+            <% homes.forEach(function(home){ %>
+              <li class="border border-gray-200 rounded-lg px-4 py-3 hover:bg-gray-50 transition">
+                <%= home.houseName %>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-white shadow-sm">
+      <div
+        class="max-w-5xl mx-auto px-4 py-6 flex items-center gap-4 flex-wrap"
+      >
+        <a
+          href="/user/contact-us"
+          class="text-blue-600 hover:text-blue-700 font-medium"
+        >
+          Contact Us
+        </a>
+        <span class="text-gray-300">|</span>
+        <a href="/" class="text-gray-700 hover:text-gray-900 font-medium">
+          Return to LOG-IN
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
