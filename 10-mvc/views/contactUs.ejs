@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact page</title>
+    <link rel="stylesheet" href="/css/output.css" />
+  </head>
+  <body class="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <%- include('partials/header') %>
+    <div class="w-full max-w-md bg-white shadow-md rounded-xl p-6">
+      <h1 class="text-2xl font-bold text-gray-900 mb-6">Details collection</h1>
+
+      <form action="/admin/submit" method="POST" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <label for="name" class="text-sm font-medium text-gray-700"
+            >NAME :
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            class="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="email" class="text-sm font-medium text-gray-700"
+            >EMAIL :
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="abc@gmail.com"
+            class="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="mt-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+        >
+          Submit
+        </button>
+      </form>
+
+      <div class="mt-5">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center w-full border border-gray-200 rounded-lg px-4 py-2 text-gray-800 hover:bg-gray-50 transition"
+        >
+          Return to LOG-IN
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
