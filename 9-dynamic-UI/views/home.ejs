@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="/css/output.css" />
   </head>
   <body class="min-h-screen bg-gray-50 flex flex-col">
-    <header class="bg-white shadow-sm">
-      <div class="max-w-5xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-900">Airbnb</h1>
-      </div>
-    </header>
-
+    <%- include('partials/header') %>
     <main class="flex-1">
       <div class="max-w-5xl mx-auto px-4 py-10">
 
@@ -32,31 +27,10 @@
             Registered Homes List
           </h1>
           <ul class="space-y-3">
-            <% homes.forEach(function(home){ %>
-              <li class="border border-gray-200 rounded-lg px-4 py-3 hover:bg-gray-50 transition">
-                <%= home.houseName %>
-              </li>
-            <% }) %>
+            <%- include('partials/houseDetails')%>
           </ul>
         </div>
       </div>
     </main>
-
-    <footer class="bg-white shadow-sm">
-      <div
-        class="max-w-5xl mx-auto px-4 py-6 flex items-center gap-4 flex-wrap"
-      >
-        <a
-          href="/user/contact-us"
-          class="text-blue-600 hover:text-blue-700 font-medium"
-        >
-          Contact Us
-        </a>
-        <span class="text-gray-300">|</span>
-        <a href="/" class="text-gray-700 hover:text-gray-900 font-medium">
-          Return to LOG-IN
-        </a>
-      </div>
-    </footer>
   </body>
 </html>
