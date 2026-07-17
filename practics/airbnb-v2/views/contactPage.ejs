@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact page</title>
+    <link rel="stylesheet" href="/css/output.css">
+  </head>
+  <body>
+    <%- include('partials/header')%>
+    <main>
+    <form action="/admin/submit" method="POST">
+      <label for="name">NAME : </label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" />
+      <label for="email">EMAIL : </label>
+      <input type="email" id="email" name="email" placeholder="abc@gmail.com" />
+      <button type="submit">submit</button>
+    </form>
+    </main>
+    <%- include('partials/footer')%>
+  </body>
+</html>
