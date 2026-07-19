@@ -1,0 +1,38 @@
+<li
+  class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+>
+  <img
+    src="<%= home.photoUrl %>"
+    alt="<%= home.houseName %>"
+    class="w-full h-56 object-cover"
+  />
+
+  <div class="p-5">
+    <h2 class="text-xl font-bold text-gray-800 mb-4"><%= home.houseName %></h2>
+
+    <div class="space-y-2 text-gray-700">
+      <p>
+        <span class="font-semibold">💰 Price:</span>
+        ₹<%= home.price %>/night
+      </p>
+
+      <p>
+        <span class="font-semibold">⭐ Rating:</span>
+        <%= home.rating %>/5
+      </p>
+
+      <p>
+        <span class="font-semibold">📍 Location:</span>
+        <%= home.location %>
+      </p>
+    </div>
+
+    <a href="#" class="block mt-6">
+      <button
+        class="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition"
+      >
+        Book Now
+      </button>
+    </a>
+  </div>
+</li>

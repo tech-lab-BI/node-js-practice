@@ -1,0 +1,24 @@
+{
+  "name": "airbnb-version-3",
+  "version": "3.0.0",
+  "description": "airbnb with more features like add, edit, delete......",
+  "license": "ISC",
+  "author": "Bikram",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.5.4",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "postcss": "^8.5.19"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "tailwindcss": "^4.3.3"
+  }
+}
