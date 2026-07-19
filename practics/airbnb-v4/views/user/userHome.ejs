@@ -1,0 +1,18 @@
+<%- include('../partials/headHtml')%>
+  <body class="bg-gray-50">
+    <%- include('../partials/header')%>
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">
+          Welcome to Your Home
+        </h1>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <% homes.forEach((home) => {%>
+            <%- include('../partials/homeList', {home: home})%>
+          <%});%>
+        </ul>
+      </div>
+    </main>
+    <%- include('../partials/footer')%>
+  </body>
+</html>

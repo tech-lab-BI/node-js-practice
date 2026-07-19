@@ -1,0 +1,19 @@
+<%- include('../partials/headHtml')%>
+<body class="bg-gray-50">
+    <%- include('../partials/header')%>
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Available Homes</h1>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% homes.forEach((home) => {%>
+                <%- include('../partials/homeList', {home: home})%>
+                    <a href="#" class="block mt-6">
+                        <button class="w-full bg-gray-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition">Check Now</button>
+                    </a>
+                    </div>
+                </li>
+            <%});%>
+        </ul>
+    </main>
+    <%- include('../partials/footer')%>
+</body>
+</html>
