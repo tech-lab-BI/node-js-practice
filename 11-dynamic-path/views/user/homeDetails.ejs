@@ -1,0 +1,62 @@
+<%- include('../partials/headHtml')%>
+<body class="bg-gray-50">
+    <%- include('../partials/header')%>
+    <main class="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
+  <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden">
+
+    <img
+      src="<%= home.photoUrl %>"
+      alt="<%= home.houseName %>"
+      class="w-full h-80 object-cover"
+    >
+
+    <div class="p-8">
+
+      <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+        Home Details
+      </h1>
+
+      <div class="space-y-5">
+
+        <div class="flex justify-between items-center border-b pb-3">
+          <span class="font-semibold text-gray-600">🏠 Title</span>
+          <span class="text-gray-900"><%= home.houseName %></span>
+        </div>
+
+        <div class="flex justify-between items-center border-b pb-3">
+          <span class="font-semibold text-gray-600">💰 Price</span>
+          <span class="text-green-600 font-semibold">₹ <%= home.price %></span>
+        </div>
+
+        <div class="flex justify-between items-center border-b pb-3">
+          <span class="font-semibold text-gray-600">📍 Location</span>
+          <span class="text-gray-900"><%= home.location %></span>
+        </div>
+
+        <div class="flex justify-between items-center border-b pb-3">
+          <span class="font-semibold text-gray-600">⭐ Rating</span>
+          <span class="text-yellow-500 font-semibold"><%= home.rating %> / 5</span>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span class="font-semibold text-gray-600">🆔 Home ID</span>
+          <span class="text-gray-500"><%= home.id %></span>
+        </div>
+
+      </div>
+
+      <div class="mt-8 flex justify-center">
+        <button
+          class="bg-red-500 hover:bg-red-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-200"
+        >
+          Book Now
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+    <%- include('../partials/footer')%>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "houseName": "new home",
+    "price": "6",
+    "location": "sdf",
+    "rating": "1.9",
+    "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMxQT5jGGBqdyyK6YyMqEh1cmARiLoYDKjBaOBNJnzTpa40bIT5lei6Vy8&s=10"
+  },
+  {
+    "id": "2",
+    "houseName": "new home",
+    "price": "4",
+    "location": "sdf",
+    "rating": "2",
+    "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISdKtTII8mRQP6cEPbZQb3JDcVB5Vtqz7ks3RaW7s1qSbrSCd-b9JR8Te&s=10"
+  },
+  {
+    "id": "3",
+    "houseName": "hello",
+    "price": "6",
+    "location": "mn",
+    "rating": "4.9",
+    "photoUrl": "https://www.vecteezy.com/free-photos/independent-house"
+  },
+  {
+    "id": "4",
+    "houseName": "santi nir",
+    "price": "700",
+    "location": "kolkata",
+    "rating": "4.3",
+    "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISdKtTII8mRQP6cEPbZQb3JDcVB5Vtqz7ks3RaW7s1qSbrSCd-b9JR8Te&s=10"
+  },
+  {
+    "id": "0.9628005019445974",
+    "houseName": "Bibi",
+    "price": "100",
+    "location": "habibi",
+    "rating": "5",
+    "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMxQT5jGGBqdyyK6YyMqEh1cmARiLoYDKjBaOBNJnzTpa40bIT5lei6Vy8&s=10"
+  },
+  {
+    "id": "0.3155880775358413",
+    "houseName": "new home",
+    "price": "100",
+    "location": "sdf",
+    "rating": "3",
+    "photoUrl": "https://www.vecteezy.com/free-photos/independent-house"
+  }
+]
