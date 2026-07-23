@@ -19,7 +19,7 @@ function putData(homes, callback) {
 
 function findById(homeId, callback){
   getData((homes) => {
-    const home = homes.find((home) => home.id === homeId);
+    const home = homes.find((home) => home.id === homeId);// syntax - find(()=>{}) return obj if found else undefined
     console.log("fileHelper / home : ",home);
     callback(home);
   })

@@ -14,8 +14,6 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.get('/', (req, res, next) => {
-    // res.send(`<a href="/user/home">user login</a>
-    //     <a href="/admin/home">admin login</a>`);
     res.sendFile(path.join(__dirname, "views", "loginPage.html"));
 })
 
@@ -23,7 +21,6 @@ app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 
 app.use((req, res, next) => {
-    // res.status(404).sendFile(path.join(__dirname, 'views', '404page.html'));
     res.status(404).render('404page', { pageName: "Error Page"});
 })
 

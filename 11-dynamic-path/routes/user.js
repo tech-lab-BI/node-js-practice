@@ -13,6 +13,8 @@ userRouter.post("/homeList", pageController.postHomeListPage);
 userRouter.get("/homeList/:homeId", pageController.homeDetailsPage);
 userRouter.get("/booking", pageController.bookingPage);
 userRouter.get("/favourite", pageController.favouritePage);
-userRouter.get("/registerHome", pageController.registrationPage);
+userRouter.post("/favourite", pageController.addToFavourite);
+userRouter.get("/registerHome", pageController.registrationPage);//registrationPage() - immediately call leading error
+
 
 module.exports = userRouter;

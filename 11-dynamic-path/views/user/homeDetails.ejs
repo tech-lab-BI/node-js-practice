@@ -38,16 +38,15 @@
           <span class="text-yellow-500 font-semibold"><%= home.rating %> / 5</span>
         </div>
 
-        <div class="flex justify-between items-center">
-          <span class="font-semibold text-gray-600">🆔 Home ID</span>
-          <span class="text-gray-500"><%= home.id %></span>
-        </div>
-
       </div>
 
-      <div class="mt-8 flex justify-center">
+      <div class="mt-4 flex justify-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300">
+          <%- include('../partials/favourite')%>
+        </div>
+  
         <button
-          class="bg-red-500 hover:bg-red-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-200"
+          class="mx-5 bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg transition duration-200"
         >
           Book Now
         </button>
