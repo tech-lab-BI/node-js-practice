@@ -1,0 +1,102 @@
+<%- include('../partials/headHtml')%>
+  <body class="bg-gray-50">
+    <%- include('../partials/header')%>
+    <main class="container mx-auto px-4 py-8">
+      <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6"><%= editing ? "Edit" : "Register"%> Your Home</h2>
+        <form action="/admin/<%= editing ? "editHome" : "hostHome" %>" method="POST" class="space-y-4">
+          <input type="hidden" name="id" value="<%= editing ? home.id : ''%>">
+          <div>
+            <label
+              for="houseName"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >HOUSE NAME</label
+            >
+            <input
+              type="text"
+              id="houseName"
+              name="houseName"
+              value="<%= editing ? home.houseName : ''%>"
+              placeholder="Enter your House Name"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="price"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >PRICE /NIGHT</label
+            >
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value="<%= editing ? home.price : ''%>"
+              placeholder="price per night"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="location"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >LOCATION</label
+            >
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value="<%= editing ? home.location : ''%>"
+              placeholder="Your House Location"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="rating"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >RATING</label
+            >
+            <input
+              type="number"
+              id="rating"
+              name="rating"
+              value="<%= editing ? home.rating : ''%>"
+              placeholder="rate your house under 5"
+              step="0.1"
+              max="5"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="photoUrl"
+              class="block text-sm font-semibold text-gray-700 mb-2"
+              >PHOTO-URL</label
+            >
+            <input
+              type="url"
+              id="photoUrl"
+              name="photoUrl"
+              value="<%= editing ? home.photoUrl : ''%>"
+              placeholder="Enter Photo URL"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </main>
+    <%- include('../partials/footer')%>
+  </body>
+</html>
