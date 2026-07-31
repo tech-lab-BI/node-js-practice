@@ -1,15 +1,13 @@
 //local module
 const { getData, findById } = require("../model/homesFunc");
 const {
-  getFavourite,
   putFavourite,
   getFavouriteList,
   deleteByIdFav,
 } = require("../model/favouriteFunc");
 
 exports.homePage = (req, res, next) => {
-  getData()
-  .then((homes) => {
+  getData().then((homes) => {
     res.render("user/userHome", { pageName: "Home", homes: homes });
   });
 };
@@ -19,51 +17,42 @@ exports.contactPage = (req, res, next) => {
 };
 
 exports.getHomeListPage = (req, res, next) => {
-  getData()
-  .then((homes) => {
+  getData().then((homes) => {
     res.render("user/homeListPage", { pageName: "Home List", homes: homes });
   });
 };
 
 exports.bookingPage = (req, res, next) => {
-  getData()
-  .then((homes) => {
+  getData().then((homes) => {
     res.render("user/bookingPage", { pageName: "My Booking", homes: homes });
   });
 };
 
 exports.favouritePage = (req, res, next) => {
-  getFavouriteList((favHomeList) => {
-    res.render("user/favouritePage", {
-      pageName: "Favourites",
-      homes: favHomeList,
+  getFavouriteList().then((favHomeList) => {
+    getData().then((homes) => {
+      const favHomes = homes.filter((home) => favHomeList.some((fav) => fav.homeId === home._id.toString()));
+      res.render("user/favouritePage", {
+        pageName: "Favourites",
+        homes: favHomes,
+      });
     });
   });
 };
 
 exports.addToFavourite = (req, res, next) => {
-  getFavourite((favHomes) => {
-    if (
-      favHomes.some((exist) => {
-        return exist.id == req.body.id;
-      })
-    ) {
-      //find return object if found else undefined , some return true/false [ some(()=>{}) ]
-      console.log("Home already present in favourite list");
-    } else {
-      favHomes.push(req.body);
-      putFavourite(favHomes, () => {
-        console.log("Written successfully");
-      });
-    }
-    res.redirect("/user/favourite"); // it may run before written in file
-  });
+  putFavourite(req.body.id)
+    .then((result) => {
+      if (result) console.log("fav added success");
+      else console.log("already present");
+      res.redirect("/user/homeList");
+    })
+    .catch(console.error);
 };
 
 exports.homeDetailsPage = (req, res, next) => {
   const homeId = req.params.homeId; // return string
-  findById(homeId)
-  .then((home) => {
+  findById(homeId).then((home) => {
     if (!home) {
       console.log("Home not found!");
       res.redirect("/user/homeList");
@@ -74,7 +63,7 @@ exports.homeDetailsPage = (req, res, next) => {
 
 exports.removeFromFav = (req, res, next) => {
   const homeId = req.params.homeId;
-  deleteByIdFav(homeId, () => {
+  deleteByIdFav(homeId).then(() => {
     res.redirect("/user/favourite");
   });
 };
