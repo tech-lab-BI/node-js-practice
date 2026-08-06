@@ -8,33 +8,53 @@ const {
 
 exports.homePage = (req, res, next) => {
   getData().then((homes) => {
-    res.render("user/userHome", { pageName: "Home", homes: homes });
+    res.render("user/userHome", {
+      pageName: "Home",
+      homes: homes,
+      isLoggedIn: req.isLoggedIn,
+    });
   });
 };
 
 exports.contactPage = (req, res, next) => {
-  res.render("user/contactPage", { pageName: "Contact" });
+  res.render("user/contactPage", {
+    pageName: "Contact",
+    isLoggedIn: req.isLoggedIn,
+  });
 };
 
 exports.getHomeListPage = (req, res, next) => {
   getData().then((homes) => {
-    res.render("user/homeListPage", { pageName: "Home List", homes: homes });
+    res.render("user/homeListPage", {
+      pageName: "Home List",
+      homes: homes,
+      isLoggedIn: req.isLoggedIn,
+    });
   });
 };
 
 exports.bookingPage = (req, res, next) => {
   getData().then((homes) => {
-    res.render("user/bookingPage", { pageName: "My Booking", homes: homes });
+    res.render("user/bookingPage", {
+      pageName: "My Booking",
+      homes: homes,
+      isLoggedIn: req.isLoggedIn,
+    });
   });
 };
 
 exports.favouritePage = (req, res, next) => {
   getFavouriteList().then((favHomeList) => {
     getData().then((homes) => {
-      const favHomes = homes.filter((home) => favHomeList.some((fav) => fav.homeId.toString() === home._id.toString()));
+      const favHomes = homes.filter((home) =>
+        favHomeList.some(
+          (fav) => fav.homeId.toString() === home._id.toString(),
+        ),
+      );
       res.render("user/favouritePage", {
         pageName: "Favourites",
         homes: favHomes,
+        isLoggedIn: req.isLoggedIn,
       });
     });
   });
@@ -57,7 +77,11 @@ exports.homeDetailsPage = (req, res, next) => {
       console.log("Home not found!");
       res.redirect("/user/homeList");
     }
-    res.render("user/homeDetails", { pageName: "Home Details", home: home });
+    res.render("user/homeDetails", {
+      pageName: "Home Details",
+      home: home,
+      isLoggedIn: req.isLoggedIn,
+    });
   });
 };
 

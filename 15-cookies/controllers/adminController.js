@@ -9,13 +9,21 @@ const { deleteByIdFav } = require("../model/favouriteFunc");
 
 exports.adminPage = (req, res, next) => {
   getData().then((homes) => {
-    res.render("admin/adminHome", { pageName: "Admin Panel", homes: homes });
+    res.render("admin/adminHome", {
+      pageName: "Admin Panel",
+      homes: homes,
+      isLoggedIn: req.isLoggedIn,
+    });
   });
 };
 
 exports.hostHomePage = (req, res, next) => {
   getData().then((homes) => {
-    res.render("admin/hostHomes", { pageName: "Admin Panel", homes: homes });
+    res.render("admin/hostHomes", {
+      pageName: "Admin Panel",
+      homes: homes,
+      isLoggedIn: req.isLoggedIn,
+    });
   });
 };
 
@@ -41,6 +49,7 @@ exports.registrationPage = (req, res, next) => {
   res.render("admin/editHomePage", {
     pageName: "Home Registration",
     editing: false,
+    isLoggedIn: req.isLoggedIn,
   });
 };
 
@@ -53,6 +62,7 @@ exports.editHomePage = (req, res, next) => {
       pageName: "Edit Home",
       home: home,
       editing: editing,
+      isLoggedIn: req.isLoggedIn,
     });
   });
 };
@@ -66,7 +76,7 @@ exports.postEditHomePage = (req, res, next) => {
     photoUrl: req.body.photoUrl,
     description: req.body.description,
   };
-  
+
   putData(req.body.id, home)
     .then(() => {
       res.redirect("/admin/hostHome");
