@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   const cookies = req.get("cookie") || "";
   const loginCookie = cookies
     .split("; ")
-    .find(cookie => cookie.startsWith("isLoggedIn="));
+    .find((cookie) => cookie.startsWith("isLoggedIn="));
   req.isLoggedIn = loginCookie?.split("=")[1] === "true";
   next();
 });
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 });
 
 const dbPath =
-  "mongodb://root:root@ac-hb1tzqd-shard-00-00.fhpqazo.mongodb.net:27017,ac-hb1tzqd-shard-00-01.fhpqazo.mongodb.net:27017,ac-hb1tzqd-shard-00-02.fhpqazo.mongodb.net:27017/airbnb?ssl=true&replicaSet=atlas-km16gb-shard-0&authSource=admin&appName=testgodb+srv://root:root@test.fhpqazo.mongodb.net/airbnb?appName=test";
+  "mongodb://root:<password>@ac-hb1tzqd-shard-00-00.fhpqazo.mongodb.net:27017,ac-hb1tzqd-shard-00-01.fhpqazo.mongodb.net:27017,ac-hb1tzqd-shard-00-02.fhpqazo.mongodb.net:27017/airbnb?ssl=true&replicaSet=atlas-km16gb-shard-0&authSource=admin&appName=testgodb+srv://root:root@test.fhpqazo.mongodb.net/airbnb?appName=test";
 const PORT = 3001;
 
 mongoose.connect(dbPath).then(() => {
