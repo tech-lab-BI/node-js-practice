@@ -2,7 +2,7 @@
 const express = require("express");
 const userRouter = express.Router();
 //local module
-const pageController = require('../controllers/userController');
+const pageController = require("../controllers/userController");
 
 userRouter.get("/userHome", pageController.homePage);
 userRouter.get("/contact-us", pageController.contactPage);

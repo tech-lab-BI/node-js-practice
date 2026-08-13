@@ -20,11 +20,9 @@ function getData() {
 }
 
 function putData(homeId, home) {
-
-  if(homeId){
+  if (homeId) {
     return Home.findByIdAndUpdate(homeId, home);
-  }
-  else{
+  } else {
     const homeData = new Home(home);
     return homeData.save();
   }

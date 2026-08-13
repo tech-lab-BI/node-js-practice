@@ -5,7 +5,7 @@ const {
   findById,
   deleteById,
 } = require("../model/homesFunc");
-const { deleteByIdFav } = require("../model/favouriteFunc");
+// const { deleteByIdFav } = require("../model/favouriteFunc");
 
 exports.adminPage = (req, res, next) => {
   getData().then((homes) => {
@@ -13,6 +13,7 @@ exports.adminPage = (req, res, next) => {
       pageName: "Admin Panel",
       homes: homes,
       isLoggedIn: req.isLoggedIn,
+      user: req.session.user,
     });
   });
 };
@@ -23,6 +24,7 @@ exports.hostHomePage = (req, res, next) => {
       pageName: "Admin Panel",
       homes: homes,
       isLoggedIn: req.isLoggedIn,
+      user: req.session.user,
     });
   });
 };
@@ -50,6 +52,7 @@ exports.registrationPage = (req, res, next) => {
     pageName: "Home Registration",
     editing: false,
     isLoggedIn: req.isLoggedIn,
+    user: req.session.user,
   });
 };
 
@@ -63,6 +66,7 @@ exports.editHomePage = (req, res, next) => {
       home: home,
       editing: editing,
       isLoggedIn: req.isLoggedIn,
+      user: req.session.user,
     });
   });
 };

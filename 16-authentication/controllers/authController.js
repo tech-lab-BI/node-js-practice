@@ -1,36 +1,51 @@
 //local module
 const User = require("../model/authFunc");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
 const { check, validationResult } = require("express-validator");
 
 exports.getLoginPage = (req, res, next) => {
   // console.log(req.session);
-  res.render("auth/login", { pageName: "Login", isLoggedIn: false });
+  res.render("auth/login", {
+    pageName: "Login",
+    isLoggedIn: false,
+    user: {},
+  });
 };
 
 exports.postLoginPage = async (req, res, next) => {
-  const {email, password} = req.body;
+  const { email, password } = req.body;
   let error = null;
-  try{
-    const user = await User.findOne({email});
+  try {
+    const user = await User.findOne({ email });
 
-    if(user){
+    if (user) {
       const isMatchPass = await bcrypt.compare(password, user.password);
-      if(isMatchPass){
+      if (isMatchPass) {
         req.session.isLoggedIn = true;
+        req.session.user = {
+          userId: user._id.toString(),
+          fname: user.fname.toString(),
+          lname: user.lname.toString(),
+          userType: user.userType.toString(),
+        };
         return res.redirect("/user/homeList");
       }
       error = ["Incorrect password"];
-    }else{
+    } else {
       error = ["Invaild email"];
     }
-    
-  } catch(err) {
+  } catch (err) {
     console.log("Error in login : ", err);
     error = [err];
   }
-  return res.render("auth/login", { pageName: "Login", isLoggedIn: false , errorMessage: error, oldEmail: email});
+  return res.render("auth/login", {
+    pageName: "Login",
+    isLoggedIn: false,
+    errorMessage: error,
+    oldEmail: email,
+    user: {},
+  });
   // req.session.isLoggedIn = true;
   // res.cookie("isLoggedIn", true);
   // res.redirect("/user/userHome");
@@ -38,7 +53,11 @@ exports.postLoginPage = async (req, res, next) => {
 
 exports.getSignUpPage = (req, res, next) => {
   // console.log(req.session);
-  res.render("auth/signup", { pageName: "SignUp", isLoggedIn: false });
+  res.render("auth/signup", {
+    pageName: "SignUp",
+    isLoggedIn: false,
+    user: {},
+  });
 };
 
 exports.postSignUpPage = [
@@ -98,7 +117,13 @@ exports.postSignUpPage = [
       // res.cookie("isLoggedIn", true);
       // console.log(req.body);
       return bcrypt.hash(password, 12).then((hashPassword) => {
-        const user = new User({ fname, lname, email, password: hashPassword, userType });
+        const user = new User({
+          fname,
+          lname,
+          email,
+          password: hashPassword,
+          userType,
+        });
         return user
           .save()
           .then(() => {
@@ -116,6 +141,7 @@ exports.postSignUpPage = [
                 email,
                 userType,
               },
+              user: {},
             });
           });
       });
@@ -131,6 +157,7 @@ exports.postSignUpPage = [
         password,
         userType,
       },
+      user: {},
     });
   },
 ];
