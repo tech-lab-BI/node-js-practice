@@ -1,0 +1,27 @@
+<%- include('../partials/headHtml')%>
+<body class="bg-slate-50/50 min-h-screen flex flex-col font-sans">
+    <%- include('../partials/header')%>
+    <main class="flex-grow container mx-auto px-6 py-12">
+        <h1 class="text-3xl text-center font-extrabold text-slate-900 tracking-tight mb-8">Host Home List</h1>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% homes.forEach((home) => {%>
+                <%- include('../partials/homeList', {home: home})%>
+                    <form action="/admin/deleteHome/<%= home._id%>" method="POST" class="inline-block mt-3 pl-5 pb-5">
+                        <button type="submit" 
+                            class="bg-rose-500 hover:bg-rose-600 text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition cursor-pointer shadow-xs"
+                        >
+                            Delete
+                        </button>
+                    </form>
+                    <a href="/admin/editHome/<%= home._id%>?editing=true"
+                        class="inline-block mt-3 ml-2 pb-5 text-center bg-slate-800 hover:bg-slate-900 text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition cursor-pointer shadow-xs"
+                    >
+                        Edit
+                    </a>
+                </li>
+            <%});%>
+        </ul>
+    </main>
+    <%- include('../partials/footer')%>
+</body>
+</html>

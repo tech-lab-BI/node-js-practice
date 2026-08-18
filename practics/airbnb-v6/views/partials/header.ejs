@@ -1,0 +1,44 @@
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 shadow-xs flex items-center justify-between transition-all duration-300">
+  <h1 class="text-2xl font-extrabold tracking-tight text-rose-500 hover:opacity-90 transition">
+    <a href="/user/userHome" class="flex items-center gap-1.5">
+      <span>🏡</span>
+      <span>airbnb</span>
+    </a>
+  </h1>
+  <div class="hidden md:flex items-center gap-2">
+    <% if (isLoggedIn) {%>
+      <% if (user && user.userType === 'guest') {%>
+        <a href="/user/homeList" class="text-sm font-semibold text-slate-600 hover:text-rose-500 hover:bg-rose-50/50 px-4 py-2 rounded-full transition duration-200">Home List</a>
+        <a href="/user/booking" class="text-sm font-semibold text-slate-600 hover:text-rose-500 hover:bg-rose-50/50 px-4 py-2 rounded-full transition duration-200">My Bookings</a>
+        <a href="/user/favourite" class="text-sm font-semibold text-slate-600 hover:text-rose-500 hover:bg-rose-50/50 px-4 py-2 rounded-full transition duration-200">Favourite</a>
+        <a href="/user/contact-us" class="text-sm font-semibold text-slate-600 hover:text-rose-500 hover:bg-rose-50/50 px-4 py-2 rounded-full transition duration-200">Contact Us</a>
+      <% } else { %>
+        <a href="/admin/registerHome" class="text-sm font-semibold text-slate-600 hover:text-rose-500 hover:bg-rose-50/50 px-4 py-2 rounded-full transition duration-200">Add Home</a>
+        <a href="/admin/hostHome" class="text-sm font-semibold text-slate-600 hover:text-rose-500 hover:bg-rose-50/50 px-4 py-2 rounded-full transition duration-200">Host Home</a>
+      <% }%>
+    <% }%>
+  </div>
+  <div class="flex gap-3">
+    <% if(!isLoggedIn) { %>
+      <a
+        href="/signup"
+        class="px-4 py-2 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full transition duration-200"
+      >
+        SignUp
+      </a>
+      <a
+        href="/login"
+        class="px-4 py-2 text-sm font-semibold text-white bg-rose-500 hover:bg-rose-600 rounded-full shadow-sm shadow-rose-200 transition duration-200"
+      >
+        Login
+      </a>
+    <% } else { %>
+      <a
+        href="/logout"
+        class="px-4 py-2 text-sm font-semibold text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-full transition duration-200"
+      >
+        Logout
+      </a>
+    <% } %>
+  </div>
+</header>

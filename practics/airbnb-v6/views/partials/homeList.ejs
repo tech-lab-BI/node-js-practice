@@ -1,0 +1,30 @@
+<li
+  class="flex flex-col bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+>
+  <img
+    src="<%= home.photo %>"
+    alt="<%= home.houseName %>"
+    class="w-full h-56 object-cover"
+  />
+
+  <div class="p-5 flex-1 flex flex-col justify-between">
+    <h2 class="text-lg font-bold text-slate-800 mb-2 truncate"><%= home.houseName %></h2>
+
+    <div class="space-y-1.5 text-sm text-slate-600">
+      <p class="flex items-center justify-between border-b border-slate-50 pb-1.5">
+        <span class="font-medium text-slate-400">💰 Price</span>
+        <span class="font-bold text-rose-500 text-base">₹<%= home.price %> / night</span>
+      </p>
+
+      <p class="flex items-center justify-between border-b border-slate-50 pb-1.5">
+        <span class="font-medium text-slate-400">⭐ Rating</span>
+        <span class="font-semibold text-amber-500"><%= home.rating %> / 5</span>
+      </p>
+
+      <p class="flex items-center justify-between">
+        <span class="font-medium text-slate-400">📍 Location</span>
+        <span class="font-semibold text-slate-700 truncate max-w-[150px]"><%= home.location %></span>
+      </p>
+    </div>
+  </div>
+</li>
