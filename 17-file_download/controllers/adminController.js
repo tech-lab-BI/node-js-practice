@@ -124,7 +124,7 @@ exports.deleteHome = async (req, res, next) => {
     if (home.photo) {
       await deleteFile(home.photo);
     }
-    deleteById(req.params.homeId);
+    await deleteById(req.params.homeId);
     return res.redirect("/admin/hostHome");
   } catch (err) {
     console.log("Delete home error:", err);
