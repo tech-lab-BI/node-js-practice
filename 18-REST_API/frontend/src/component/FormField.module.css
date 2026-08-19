@@ -1,0 +1,12 @@
+.page{
+    padding: 2px;
+    margin: 3px;
+}
+.todoName{
+    margin-right: 15%;
+    padding: 2px;
+    width: 300px;
+}
+.todoDate{
+    margin-right: 20%;
+}
